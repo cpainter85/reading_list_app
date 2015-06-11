@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require bootstrap-sprockets
+
+$(document).ready(function () {
+  $('.form-submit').on('click', function (e) {
+    $.ajax({
+      type: 'POST',
+      url: '/lists',
+      data: { 'list': {'name' : $('.form-input').val() } },
+      success: function (data) {
+        $('.all-lists').append('<h3>' +data.name + '</h3>')
+      }
+    })
+    e.preventDefault();
+  });
+});

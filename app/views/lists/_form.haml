@@ -1,0 +1,10 @@
+=form_for @list, html: { class: 'form-inline' } do |f|
+  -if @list.errors.any?
+    %h2="#{pluralize(@list.errors.count, 'error')} prohibited this list from being saved:"
+    %ul
+      -@list.errors.full_messages.each do |message|
+        %li=message
+  .form-group
+    =f.label :name, class: 'sr-only'
+    =f.text_field :name, placeholder: 'Insert name of List Here', class: 'form-input form-control'
+  =button_tag 'Add List', class: 'form-submit btn btn-primary'

@@ -1,5 +1,10 @@
 .container
   .page-header
     %h1 Reading Lists
-  -@lists.each do |list|
-    %h3=list.name
+  .well
+    %h2.text-center Create New List
+    .text-center
+      =render 'form'
+  .all-lists
+    -@lists.each do |list|
+      %h3=list.name
